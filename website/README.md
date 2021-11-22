@@ -42,3 +42,4 @@
   is running.
 * Now if you curl "localhost:8080, then the spashpage should showup like mine below:
 ![mySplash](Pictures/mySpash.jpg)
+EXTRA CREDIT?
