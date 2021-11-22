@@ -18,7 +18,7 @@
 ![dockerRunning](Pictures/dockerRunning.jpg)
 ----------------------------------
 4. Get a webpage or splashpage
-* Create a basic HTML file to replace the old "index.html" file that apache2 makes in "/var/www/html"
+* Create a basic HTML file to replace the old "index.html" file that apache2 makes in "/usr/local/apache2/htdocs/"
 ![simpleHTML](Pictures/simpleHTML.jpg)
 ----------------------------------
 5. Pull an image and build.
@@ -28,8 +28,7 @@
 * Now the DOCKERFILE. . .The dockerfile is basically a list of commands that will build the image
   of whatever you need the container to do. It can look like the one below:
   ![dockerfile](Pictures/dockerfile.jpg)
-* I am using Apache2 so I needed to move the index.html file to index.html.old, and in my dockerfile it
-  should copy the web1.html into "/var/www/html/" after installing Apache2.
+* In my dockerfile it should copy the index.html into "/usr/local/apache2/htdocs/" folder after installing Apache2.
 * Below is the readout:
 ![dockerBuild](Pictures/dockerBuild.jpg)
 ----------------------------------
@@ -39,4 +38,7 @@
 * Now that it is verified, we can test to see if the image actually does what we need it to do.
 * I had issues trying to run the command below due to login issues with Docker, so I went ahead and 
   logged in using "sudo docker login", input my username and password, then ran the command below.
-  Using "sudo docker run -d -p 80:80 web1"
+  Using "sudo docker run -d -p 8080:80 web1:Project6" you should see a hash printout meaning the container 
+  is running.
+* Now if you curl "localhost:8080, then the spashpage should showup like mine below:
+![mySplash](Pictures/mySpash.jpg)
